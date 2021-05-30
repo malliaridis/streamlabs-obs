@@ -65,6 +65,8 @@ export class NameFolder extends ReactComponent {}
 export class NewsBanner extends ReactComponent {}
 @Component({ props: { name: { default: 'PatchNotes' } } })
 export class PatchNotes extends ReactComponent {}
+@Component({ props: { name: { default: 'SocketThing' } } })
+export class SocketThing extends ReactComponent {}
 @Component({
   props: {
     name: { default: 'NavTools' },

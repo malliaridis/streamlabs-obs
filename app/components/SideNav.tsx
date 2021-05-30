@@ -171,6 +171,15 @@ export default class SideNav extends Vue {
       });
     }
 
+    if (this.userService.isLoggedIn) {
+      pageData.push({
+        target: 'SocketThing',
+        icon: 'icon-more',
+        title: $t('Socket Thing'),
+        trackingTarget: 'socket-thing',
+      });
+    }
+
     return (
       <div class={cx('side-nav', styles.container, { [styles.leftDock]: this.leftDock })}>
         {this.primaryStudioTab}

@@ -59,6 +59,29 @@ export class AudioSource implements ISerializable {
     this.audioSource.setDeflection(deflection);
   }
 
+  /**
+   * Sets the audio volume in mul. Note that the value needs to be between
+   * 0.0 (exclusive) and 1.0 (inclusive). Also note that the value is not
+   * equivalent to the volume in percentage. Values equal to or smaller than 0.0
+   * set the volume to 0% (-inf dB). The values are exponentially related with
+   * the volume in dB. The formula from dB to mul is `10^(dB / 20) = mul`.
+   * ```
+   * Volume => Formula      = Mul
+   * ------------------------------
+   *    0 => 10^(   0 / 20) = 1.0
+   *  -20 => 10^( -20 / 20) = 0.1
+   *  -40 => 10^( -40 / 20) = 0.01
+   *  -60 => 10^( -60 / 20) = 0.001
+   *  -80 => 10^( -80 / 20) = 0.0001
+   * -100 => 10^(-100 / 20) = 0.00001
+   * ```
+   *
+   * @param mul The volume to set in mul, between 0.0 and 1.0
+   */
+  setMul(mul: number) {
+    this.audioSource.setMul(mul);
+  }
+
   setMuted(muted: boolean) {
     this.audioSource.setMuted(muted);
   }
